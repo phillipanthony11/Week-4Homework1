@@ -1,0 +1,32 @@
+header {
+    text-align: center;
+    background-color: aquamarine;
+    color: black;
+    height: 100px;
+}
+.flexbox-container {
+    display: flex;
+
+}
+.flexbox2 {
+    border: 1px solid black;
+    padding: 5px;
+    min-width: 400px;
+    margin-left: 8px;
+}
+
+.flexbox1 {
+}
+
+#icon{
+    display: none;
+}
+
+li {
+ list-style: none;
+}
+
+#citiesList li {
+    text-decoration: underline;
+    cursor: pointer;
+}

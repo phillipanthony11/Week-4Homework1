@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+
+</head>
+<body>
+    <header><h1>Weather Dashboard</h1></header>
+    <div class="flexbox-container">
+        <div class="flexbox1">
+            <div class="search">
+                <label name="search">Search City</label>
+                <input type="search" id="search">
+                <button class="button" id="searchButton"> Search</button>
+            </div>
+            <div class="savedCities">
+                <ul id="citiesList">
+                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="flexbox2">
+            <div class="cityHeader">
+                <h2 id="cityName"></h2>
+                <img alt="weather icon" id="icon">
+                <p id="temperature"></p>
+                <p id="wind"></p>
+                <p id="humidity"></p>   
+            </div>
+            <div class="cards"></div>
+        </div>
+
+        <!-- <div class="flexbox3">
+            <div class="weather">
+                <div class="city"></div>
+                <div class="description"></div>
+                <div class="temp"></div>
+                <div class="wind-speed"></div>
+              
+
+
+
+            </div>
+        </div> -->
+
+    </div>
+    
+</body>
+<script src="script.js"></script>
+</html>
