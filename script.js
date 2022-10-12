@@ -11,6 +11,7 @@ var year = dateObj.getUTCFullYear();
 var newdate = `${month}/${day}/${year}`;
 var cities = []
 var ul = document.getElementById("citiesList");
+var cards = document.querySelectorAll(".card")
 
 function initializeCities(){
     if(JSON.parse(localStorage.getItem("cities"))){
@@ -19,9 +20,42 @@ function initializeCities(){
         for (let i = 0; i < cities.length; i++) {
             var li = document.createElement("li");
             li.innerHTML = cities[i]
+            addClick(li)
             ul.appendChild(li); 
         }
     }
+}
+
+function revealCards(city){
+    fetch("https://api.openweathermap.org/data/2.5/forecast?q="+city+"&units=imperial&appid=" + api)
+    .then((function(response) {
+        if(response.ok){
+            response.json()
+            .then(function (data) {
+                console.log(data)
+                let forecastTracker = 0
+                for (let i = 0; i < cards.length; i++) {
+                    cards[i].style.opacity = 1
+                    var cardDate = cards[i].querySelector(".date")
+                    var cardIcon = cards[i].querySelector(".cardIcon")
+                    var cardTemp = cards[i].querySelector(".temp")
+                    var cardWind = cards[i].querySelector(".wind")
+                    var cardHumidity = cards[i].querySelector(".humidity")
+                    cardDate.innerHTML="Date: " + data.list[forecastTracker].dt_txt
+                    var iconURL = "http://openweathermap.org/img/w/" + data.list[forecastTracker].weather[0].icon + ".png";
+                    cardIcon.setAttribute("src", iconURL)
+                    cardTemp.innerHTML="Temperature: " + data.list[forecastTracker].main.temp+"°F"
+                    cardWind.innerHTML="Wind Speed: " + data.list[forecastTracker].wind.speed+"MPH"
+                    cardHumidity.innerHTML="Humidity: " + data.list[forecastTracker].main.humidity+"%"
+                    forecastTracker+=8
+                }
+              });
+        }
+        else{
+            console.log(response)
+            alert('Error: ' + response.statusText)
+        }
+    }))
 }
 
 initializeCities()
@@ -49,6 +83,7 @@ function addClick(listItem){
             if(response.ok){
                 response.json()
                 .then(function (data) {
+                    console.log(data)
                     var iconCode = data.weather[0].icon
                     var iconurl = "http://openweathermap.org/img/w/" + iconCode + ".png";
                     icon.setAttribute("src", iconurl)
@@ -57,8 +92,7 @@ function addClick(listItem){
                     temperature.innerHTML = "Temperature: "  + data.main.temp + "°F"
                     humidity.innerHTML = "Humidity: " + data.main.humidity + "%"
                     wind.innerHTML = "Wind Speed: " + data.wind.speed + "MPH"
-                    console.log(data);
-                    saveCity(event.target.innerHTML)
+                    revealCards(event.target.innerHTML)
                   });
             }
             else{
@@ -85,6 +119,7 @@ function getWeather(city) {
                 wind.innerHTML = "Wind Speed: " + data.wind.speed + "MPH"
                 console.log(data);
                 saveCity(city)
+                revealCards(city)
               });
         }
         else{

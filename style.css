@@ -30,3 +30,11 @@ li {
     text-decoration: underline;
     cursor: pointer;
 }
+
+.cards {
+    display: flex;
+}
+
+.cards .card {
+    opacity: 0;
+}

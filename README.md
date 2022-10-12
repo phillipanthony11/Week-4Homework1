@@ -2,7 +2,9 @@
 
 ## Description:
 
-This weeks assignment was a 5 day weather forecast, that also stores saved cities underneath the search bar. I linked the api from the open weather website. I made the api a variable then later used a function, so that anytime a city is searched the javascript searches for the https, + the city name that is placed in the search bar, I then added a request in the url to provide the imperial measurments, because thats what I am used to seeing and what I expected was wanted. At the end of the https the api is added, to make it a complete website whose information could be pulled for the weather app. I'm still working on storing the saved cities data, I'm having an issue with all the past cities being searched again as opposed to the current only. I am also trying to get the 5 day forecast. I started using the 1 day API so I may have to start from scratch.
+This weeks assignment was a 5 day weather forecast, that also stores saved cities underneath the search bar. I linked the api from the open weather website. I made the api a variable then later used a function, so that anytime a city is searched the javascript searches for the https, + the city name that is placed in the search bar, I then added a request in the url to provide the imperial measurments, because thats what I am used to seeing and what I expected was wanted. At the end of the https the api is added, to make it a complete website whose information could be pulled for the weather app. There are cards that appear when a city is searched that show the forecast for the next 5 days. The url search was slightly different for the 5 day forecast as the one day but with the same API key.
+
+Sorry about the notes about this being imcomplete, managed to finish and push before midnight but turned it in earlier today.
 
 ## Screenshots:
 
